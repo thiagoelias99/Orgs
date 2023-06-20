@@ -23,6 +23,9 @@ interface ProdutoDao {
     @Query("SELECT * FROM Produto")
     fun buscaTodos() : List<Produto>
 
+    @Query("SELECT * FROM Produto WHERE userId = :id")
+    fun buscaTodosDoUsuario(id: String) : List<Produto>
+
     @Query("SELECT * FROM Produto WHERE id = :id")
     fun buscaPorId(id: Long) : Produto?
 

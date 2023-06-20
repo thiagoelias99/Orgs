@@ -28,6 +28,10 @@
             <item
                 android:id="@+id/menu_lista_produtos_ordenar_sem_ordem"
                 android:title="Sem ordem" />
+            <item
+                android:id="@+id/logout"
+                android:title="Logout"
+                android:icon="@drawable/ic_logout"/>
         </menu>
     </item>
 </menu>

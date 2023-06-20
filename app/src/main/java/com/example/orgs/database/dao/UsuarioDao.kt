@@ -14,15 +14,10 @@ interface UsuarioDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     fun salva(vararg usuario: Usuario)
 
-    @Update
-    fun altera(usuario: Usuario)
-
-    @Delete
-    fun remove(usuario: Usuario)
-
-    @Query("SELECT * FROM Usuario")
-    fun buscaTodos() : List<Usuario>
-
     @Query("SELECT * FROM Usuario WHERE id = :id")
-    fun buscaPorId(id: Long) : Usuario?
+    fun buscaPorId(id: String) : Usuario?
+
+    @Query("SELECT * FROM Usuario WHERE nome = :nome AND senha = :senha")
+    fun authentica(nome: String, senha: String): Usuario?
+
 }

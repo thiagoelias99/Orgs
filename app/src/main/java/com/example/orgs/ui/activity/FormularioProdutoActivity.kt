@@ -1,5 +1,7 @@
 package com.example.orgs.ui.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.orgs.database.AppDatabase
@@ -88,12 +90,17 @@ class FormularioProdutoActivity : AppCompatActivity() {
             BigDecimal(valorEmTexto)
         }
 
+        val sharedPrefs = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val userId = sharedPrefs.getString("CHAVE_USER", null)
+
         return Produto(
             id = produtoId,
             nome = nome,
             descricao = descricao,
             valor = valor,
-            imagem = url
+            imagem = url,
+            userId = userId
+
         )
     }
 }

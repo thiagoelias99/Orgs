@@ -15,7 +15,7 @@ import com.example.orgs.model.Usuario
     entities = [
         Produto::class,
         Usuario::class
-    ], version = 2
+    ], version = 3
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -28,7 +28,13 @@ abstract class AppDatabase : RoomDatabase() {
                 context,
                 AppDatabase::class.java,
                 "orgs.db"
-            ).allowMainThreadQueries().addMigrations(MIGRATION_1_2).build()
+            )
+                .allowMainThreadQueries()
+                .addMigrations(
+                    MIGRATION_1_2,
+                    MIGRATION_2_3
+                )
+                .build()
         }
     }
 }
